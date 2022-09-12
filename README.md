@@ -1,2 +1,2 @@
 # SQLiteExample - Contact App
-Implemented SQLitedatabase for Contacts saving application.
+Implemented SQLiteDatabase for Contacts saving application.
