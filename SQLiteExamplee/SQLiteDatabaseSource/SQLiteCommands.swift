@@ -63,6 +63,11 @@ class SQLiteCommands{
         }
     }
     
+    //updating row
+    
+    
+    //presenting row
+    
     static func presentRows()-> [Contacts]?{
         guard let database = SQLiteDatabase.sharedInstance.database else {
             print("error connecting to database")
