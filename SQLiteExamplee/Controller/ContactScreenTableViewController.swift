@@ -8,25 +8,25 @@
 import UIKit
 
 class ContactScreenTableViewController: UITableViewController {
-
+    
     private var viewModel = ContactScreenViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       title = "Contacts"
+        
+        title = "Contacts"
         
         //connect to databse
         viewModel.contactToDatabase()
     }
-
-//MARK: Load data from SQLdatabase
+    
+    //MARK: Load data from SQLdatabase
     private func loadData(){
         viewModel.loadSQLDatabase()
     }
     
     // MARK: - Table view data source
-
-   
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRowsInSectino(section: section)
     }
@@ -36,23 +36,36 @@ class ContactScreenTableViewController: UITableViewController {
         loadData()
         tableView.reloadData()
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        
         // Configure the cell...
         let object = viewModel.cellForRowAt(index: indexPath)
         if let contactCell = cell as? ContactScreenTableViewCell{
             contactCell.setCellContactValues(object)
         }
-
+        
         return cell
     }
     
+    //Delete cell from table
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            let contact = viewModel.cellForRowAt(index: indexPath)
+            
+            //Delete contact from database table
+            SQLiteCommands.deleteRow(contactId: contact.id)
+            
+            //Update the UI after delete changes
+            self.loadData()
+            self.tableView.reloadData()
+        }
+    }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -68,5 +81,4 @@ class ContactScreenTableViewController: UITableViewController {
         }
     }
     
-
 }

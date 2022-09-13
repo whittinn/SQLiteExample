@@ -41,7 +41,7 @@ class SQLiteCommands{
         }catch{
             print("table already exists \(error)")
         }
-              
+        
     }
     
     // insert row
@@ -64,7 +64,32 @@ class SQLiteCommands{
     }
     
     //updating row
-    
+    static func updateRows(_ contactValues:Contacts)->Bool?{
+        guard let dataBase = SQLiteDatabase.sharedInstance.database else {
+            print("Database Connect Error")
+            return nil
+        }
+        //Extract the appropraite contact from the table according to the id
+        let contact = table.filter(id == contactValues.id).limit(1)
+        
+        do{
+            if try dataBase.run(contact.update(firstName <- contactValues.firstName, lastName <- contactValues.lastName, phoneNumber <- contactValues.phoneNumber, photo <- contactValues.photo)) > 0{
+                
+                print("Updated contact")
+                return true
+            }else{
+                print("contact not update contact: contact found")
+                return false
+            }
+        }catch let Result.error(message: messege, code: code, statement: statement) where code == SQLITE_CONSTRAINT{
+            print("Updating row failed: \(messege), in \(String(describing: statement))")
+            return false
+        }catch let error{
+            print("Updating failed: \(error)")
+            return false
+        }
+        
+    }
     
     //presenting row
     
@@ -100,5 +125,20 @@ class SQLiteCommands{
             
         }
         return contactArray
+    }
+    
+    static func deleteRow(contactId:Int){
+        
+        guard let database = SQLiteDatabase.sharedInstance.database else{
+            print("Database connection error")
+            return
+        }
+        
+        do{
+            let contact = table.filter(id == contactId).limit(1)
+            try database.run(contact.delete())
+        }catch{
+            print("Delete row error: \(error)")
+        }
     }
 }

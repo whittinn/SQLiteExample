@@ -43,9 +43,6 @@
                                     <constraint firstAttribute="width" constant="240" id="08C-Db-Kqb"/>
                                     <constraint firstAttribute="height" constant="127" id="WGF-Wl-1yn"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="C3d-Ez-Sgr" appends="YES" id="fd1-ou-RP6"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,11 +76,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="C3d-Ez-Sgr">
-                    <connections>
-                        <action selector="addImageFromPhotoLibary:" destination="BYZ-38-t0r" id="Y83-pn-kFx"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2951" y="-551"/>
         </scene>
@@ -209,7 +201,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="abd-wF-j1w"/>
+        <segue reference="w1V-Af-VjQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>

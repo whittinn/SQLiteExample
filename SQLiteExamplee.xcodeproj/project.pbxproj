@@ -78,16 +78,14 @@
 		8C43A5C928CC61AB00B41E42 /* SQLiteExamplee */ = {
 			isa = PBXGroup;
 			children = (
+				8CF558E128D014DF00F643BB /* View */,
+				8CF558E028D014C800F643BB /* Controller */,
 				8CBD3A5028CD075D008510FA /* NewContactViewModel */,
 				8CBD3A4D28CCF4AA008510FA /* SQLiteDatabaseSource */,
 				8CBD3A4528CCEDA5008510FA /* Contacts */,
 				8C43A5CA28CC61AB00B41E42 /* AppDelegate.swift */,
 				8C43A5CC28CC61AB00B41E42 /* SceneDelegate.swift */,
-				8C8C29B228CEEED8009425CD /* ContactScreenTableViewController.swift */,
-				8CBD3A5328CD0DCF008510FA /* NewContactViewController.swift */,
-				8C8C29AE28CD9C95009425CD /* ContactScreenTableViewCell.swift */,
 				8C43A5CE28CC61AB00B41E42 /* ViewController.swift */,
-				8C43A5D028CC61AB00B41E42 /* Main.storyboard */,
 				8C43A5D328CC61AD00B41E42 /* Assets.xcassets */,
 				8CBD3A4828CCF111008510FA /* Extenstions */,
 				8C43A5D528CC61AD00B41E42 /* LaunchScreen.storyboard */,
@@ -129,6 +127,24 @@
 				8C8C29B028CEED16009425CD /* ContactScreenViewModel.swift */,
 			);
 			path = NewContactViewModel;
+			sourceTree = "<group>";
+		};
+		8CF558E028D014C800F643BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C8C29B228CEEED8009425CD /* ContactScreenTableViewController.swift */,
+				8CBD3A5328CD0DCF008510FA /* NewContactViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8CF558E128D014DF00F643BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C43A5D028CC61AB00B41E42 /* Main.storyboard */,
+				8C8C29AE28CD9C95009425CD /* ContactScreenTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
