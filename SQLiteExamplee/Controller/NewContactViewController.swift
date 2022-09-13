@@ -28,7 +28,7 @@ class NewContactViewController: UIViewController{
     
         
         // Initialize Tap Gesture Recognizer
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(_:)))
         
         // Configure Tap Gesture Recognizer
             tapGestureRecognizer.numberOfTapsRequired = 2
